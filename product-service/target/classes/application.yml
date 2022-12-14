@@ -1,0 +1,49 @@
+server:
+  port: 0
+
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      file-size-threshold: 10MB
+      enabled: true
+  jackson:
+    time-zone: Asia/Baku
+  datasource:
+    name: blog_app
+    url: jdbc:mysql://localhost:3306/product_service
+    username: root
+    password: 123456789
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  properties:
+    hibernate:
+      format_sql: true
+  application:
+    name: product-service
+
+
+#jwt:
+#  config:
+#    secret-key: 3m59OX5h1ZTJsXmQF36qp7URWdFXV7Pz1WOjOmo9McCLWkxLdUVpiSAN8NlbbRXBDCTBqelhXrTWnz1W1WP0aiaPik7z5oGwYLMB1th5aFQoid2Qh7sadgmErUJstUqe
+#    expiration-time: 1
+file-upload:
+  settings:
+    upload-folder: d:/productservicefiles/uploads/
+#logging:
+#  file:
+#    name: d:/blogappfiles/logs/logFile.txt
+#    path: d:/blogappfiles/logs/
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}

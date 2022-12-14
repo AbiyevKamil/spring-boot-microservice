@@ -1,0 +1,30 @@
+server:
+  port: 0
+
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: stphoenix2002@gmail.com
+    password: akamil2002
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+        socketFactory:
+          port: 587
+          class: javax.net.ssl.SSLSocketFactory
+          fallback: false
+  application:
+    name: notification-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
